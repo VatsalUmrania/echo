@@ -1,16 +1,15 @@
-"use client"
-
-import {useQuery} from "convex/react";
-import {api} from "@workspace/backend/_generated/api";
+import { Button } from "@workspace/ui/components/button"
+import  {add} from "@workspace/math/add"
+import {Input} from "@workspace/ui/components/input"
 export default function Page() {
-  const users = useQuery(api.user.getMany, {});
   return (
     <div className="flex items-center justify-center min-h-svh">
-      <p>apps/web</p>
-      <div className="max-w-sm p-4 ">
-        {JSON.stringify(users)}
+      <div className="flex flex-col items-center justify-center gap-4">
+        <h1 className="text-2xl font-bold">Hello Web</h1>
+        <Button size="sm">Button</Button>
+        <p className="text-lg">2 + 3 = {add(2, 3)}</p>
+        <Input/>
       </div>
-      
     </div>
   )
- }
+}
