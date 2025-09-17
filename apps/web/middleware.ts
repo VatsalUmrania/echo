@@ -1,15 +1,28 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
+import { NextResponse } from 'next/server';
 
 const isPublicRoute = createRouteMatcher([
-    "/sign-in(.*)",  // Correct
-    "/sign-up(.*)",  // Correct
+    "/sign-in(.*)",  
+    "/sign-up(.*)",  
 ]);
 
+const isOrgFreeRoute = createRouteMatcher([
+    "/sign-in(.*)",
+    "/sign-up(.*)",
+    "/org-selction(.*)"
+]); 
 
 export default clerkMiddleware(async (auth, req) => {
-    // `req` should be the Edge Request object (this might differ from traditional Node.js)
+    const {userId , orgId} = await auth();
+
     if (!isPublicRoute(req)) {
-        await auth.protect(); // This should work as expected
+        await auth.protect(); 
+    }
+
+    if(userId && !orgId && !isOrgFreeRoute(req)){
+      const searchParams = new URL(req.url).searchParams;
+      const orgselection = new URL(`/org-selection?${searchParams.toString()}`, req.url);
+      return NextResponse.redirect(orgselection);
     }
 })
 
