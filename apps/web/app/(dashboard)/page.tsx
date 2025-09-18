@@ -3,6 +3,7 @@
 import {api} from "@workspace/backend/_generated/api";
 import { OrganizationSwitcher, SignInButton, UserButton } from "@clerk/nextjs";
 import {Button} from "@workspace/ui/components/button"
+import { useMutation, useQuery } from "convex/react";
 export default function Page() {
   const users = useQuery(api.user.getMany, {});
   const addUser = useMutation(api.user.add);
