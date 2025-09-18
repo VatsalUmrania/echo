@@ -3,7 +3,19 @@ import { Authenticated, Unauthenticated, useQuery ,useMutation} from "convex/rea
 import {api} from "@workspace/backend/_generated/api";
 import { OrganizationSwitcher, SignInButton, UserButton } from "@clerk/nextjs";
 import {Button} from "@workspace/ui/components/button"
-export default function Page() {
+/**
+  * Root client page component that shows authenticated app controls or a sign-in prompt.
+  *
+  * When the user is authenticated this component:
+  * - fetches a list of users via a Convex query and displays the raw JSON result,
+  * - renders Clerk UI controls (UserButton and OrganizationSwitcher),
+  * - provides an "Add User" button that calls a Convex mutation to create a user.
+  *
+  * When unauthenticated it shows a prompt and a sign-in button.
+  *
+  * @returns The page's JSX element.
+  */
+ export default function Page() {
   const users = useQuery(api.user.getMany, {});
   const addUser = useMutation(api.user.add);
   return (

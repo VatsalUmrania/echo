@@ -13,6 +13,12 @@ const fontMono = Geist_Mono({
   variable: "--font-mono",
 })
 
+/**
+ * Root layout for the application that applies global fonts and styles, and wraps content with authentication and app providers.
+ *
+ * @param children - React node(s) to render inside the layout.
+ * @returns The root HTML structure containing `children` wrapped by `ClerkProvider` and `Providers`.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
