@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack --port 3000",
+    "dev": "next dev --port 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.32.0",
+    "@sentry/nextjs": "10",
     "@workspace/ui": "workspace:*",
     "convex": "^1.27.0",
     "lucide-react": "^0.475.0",

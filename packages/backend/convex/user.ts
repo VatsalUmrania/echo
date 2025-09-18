@@ -19,7 +19,11 @@ export const add = mutation({
         if(!orgId){
             throw new Error("No organization found");
         }
+        throw new Error("Error Testing")
         const UserID = await ctx.db.insert("users", { name : "New User" });
         return UserID;
     }
+
+    
+    
 })
