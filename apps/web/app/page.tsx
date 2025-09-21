@@ -1,28 +1,13 @@
 "use client"
 import { Authenticated, Unauthenticated, useQuery ,useMutation} from "convex/react";
-import {api} from "@workspace/backend/_generated/api";
 import { OrganizationSwitcher, SignInButton, UserButton } from "@clerk/nextjs";
-import {Button} from "@workspace/ui/components/button"
+import DashboardPage from "./(dashboard)/page";
+
 export default function Page() {
-  const users = useQuery(api.user.getMany, {});
-  const addUser = useMutation(api.user.add);
   return (
     <>
-          <Authenticated>
-        <div className="flex items-center justify-center min-h-svh">
-          <p>apps/web</p>
-          <UserButton></UserButton>
-          <OrganizationSwitcher hidePersonal/>
-          <Button onClick={async () => {
-        await addUser({});
-      }} className="m-4">
-        Add User
-      </Button>
-          <div className="max-w-sm p-4 ">
-            {JSON.stringify(users)}
-          </div>
-          
-        </div>
+      <Authenticated>
+        <DashboardPage />
       </Authenticated>
       <Unauthenticated>
         <div className="flex items-center justify-center min-h-svh">
