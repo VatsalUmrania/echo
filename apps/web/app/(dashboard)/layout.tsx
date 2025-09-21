@@ -1,12 +1,25 @@
+// import { DashboardLayout } from "@/modules/dashboard/ui/layouts/dashboard-layout";
+
+// const Layout = ({children} : {children : React.ReactNode; }) => {
+//     return (
+//         <DashboardLayout>
+//             {children}
+//         </DashboardLayout>
+//     );
+// }
+// export default Layout;
 import { AuthGurad } from "@/modules/auth/ui/components/auth-guard";
 import { OrganizationGuard } from "@/modules/auth/ui/components/organization-guard";
-import { Organization } from "@clerk/nextjs/server";
+import  DashboardLayout from "@/modules/dashboard/ui/layouts/dashboard-layout";
+
 
 const Layout = ({children} : {children : React.ReactNode; }) => {
     return (
         <AuthGurad>
             <OrganizationGuard>
-                {children}
+                <DashboardLayout>
+                    {children}
+                </DashboardLayout>
             </OrganizationGuard>
         </AuthGurad>
     );
