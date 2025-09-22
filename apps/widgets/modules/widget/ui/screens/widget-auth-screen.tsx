@@ -182,7 +182,6 @@ export const WidgetAuthScreen = () => {
         };
 
         try {
-            // FIX 2: Replaced `...values` with the actual form data `data`
             const contactSessionId = await createContactSession({
                 ...data,
                 organizationId,
