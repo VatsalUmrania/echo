@@ -7,7 +7,6 @@ import { WidgetHeader } from "@/modules/widget/ui/components/widget-header";
 import { useEffect, useState } from "react";
 import { useAction, useMutation } from "convex/react";
 import { api } from "@workspace/backend/_generated/api";
-import { validate } from "@workspace/backend/public/contactSession";
 import { Id } from "@workspace/backend/_generated/dataModel";
 
 type InitStep = "storage" | "org" | "session" | "settings" | "vapi" | "done";
@@ -81,7 +80,7 @@ export const WidgetLoadingScreen = ({ organizationId }:{organizationId : string 
         setLoadingMessage("Validating Session...");
 
         validateContactSession({
-            contactSessionId: contactSessionId as Id<"contactSessions">
+            contactSessionId: contactSessionId
         })
         .then((result) => {
             setSessionValid(result.valid);
@@ -104,7 +103,7 @@ export const WidgetLoadingScreen = ({ organizationId }:{organizationId : string 
         }
 
         const hasValidSession = contactSessionId && sesseionValid;
-        setScreen(hasValidSession ? "selection" : "auth");
+        setScreen(hasValidSession ? "auth" : "selection");
 
     },[
         step,
