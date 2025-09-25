@@ -103,7 +103,7 @@ export const WidgetLoadingScreen = ({ organizationId }:{organizationId : string 
         }
 
         const hasValidSession = contactSessionId && sesseionValid;
-        setScreen(hasValidSession ? "auth" : "selection");
+        setScreen(hasValidSession ? "selection" : "auth");
 
     },[
         step,

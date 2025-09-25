@@ -12,11 +12,12 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@convex-dev/agent": "0.1.16",
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-label": "^2.1.7",
     "@vapi-ai/web": "^2.3.10",
     "@workspace/ui": "workspace:*",
-    "convex": "^1.27.0",
+    "convex": "^1.27.3",
     "jotai": "^2.14.0",
     "lucide-react": "^0.475.0",
     "next": "^15.4.5",
