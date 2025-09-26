@@ -33,6 +33,9 @@ import {
     AISuggestions
 } from "@workspace/ui/components/ai/suggestion";
 import { Form , FormField } from "@workspace/ui/components/form"; 
+import { UseInfiniteScroll } from "@workspace/ui/hooks/use-infinite-scroll";
+import { InfiniteScrollTrigger } from "@workspace/ui/components/infinit-scroll-trigger";
+import { DicebearAvatar } from "@workspace/ui/components/dicebar-avatar";
 
 const formSchema = z.object({
     message : z.string().min(1, "Message is Required"),
@@ -76,6 +79,12 @@ export const WidgetChatScreen = () => {
         },
     )
 
+    const { topElementRef, handlerLoadMore, canLoadMore, isLoadingMore} = UseInfiniteScroll({
+        status : messages.status,
+        loadMore: messages.loadMore,
+        loadSize: 10
+    })
+
      const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues:{
@@ -98,8 +107,6 @@ export const WidgetChatScreen = () => {
         });
     };
 
-
-
     return(
         <>
             <WidgetHeader className="flex items-center justify-between">
@@ -121,6 +128,12 @@ export const WidgetChatScreen = () => {
             </WidgetHeader>
             <AIConversation>
                 <AIConversationContent>
+                    <InfiniteScrollTrigger
+                        canLoadMore = {canLoadMore}
+                        isLoadingMore = {isLoadingMore}
+                        onLoadMore = {handlerLoadMore}
+                        ref = {topElementRef}
+                    />
                     {toUIMessages(messages.results ?? [])?.map((message) => {
                     return (
                         <AIMessage
@@ -131,6 +144,14 @@ export const WidgetChatScreen = () => {
                                 <AIResponse>{message.content}</AIResponse>
                             </AIMessageContent>
                             {/*TODO : Add Avatar Component */}
+                            {message.role === "assistant" && (
+                                <DicebearAvatar
+                                    // imageUrl="/logo.svg"
+                                    seed="assistant"
+                                    size={32}
+                                    badgeImageUrl="/logo.svg"
+                                />
+                            )}
                         </AIMessage>
                     );
                     })}
