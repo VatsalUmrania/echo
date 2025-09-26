@@ -36,7 +36,7 @@ export const DicebearAvatar = ({
         })
 
         return avatar.toDataUri();
-    },[seed, size]);
+    },[seed, size, imageUrl]);
 
     const bageSize = Math.round(size * .5);
 
