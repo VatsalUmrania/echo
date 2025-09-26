@@ -14,7 +14,7 @@ export const create = mutation({
 
         if (!session || session.expiresAt < Date.now()) {
             throw new ConvexError({
-                code: "UNAUTHRIZED",
+                code: "UNAUTHORIZED",
                 message: "Invalid Session"
             })
         }
@@ -53,7 +53,7 @@ export const getOne = query({
 
         if (!session || session.expiresAt < Date.now()) {
             throw new ConvexError({
-                code: "UNAUTHRIZED",
+                code: "UNAUTHORIZED",
                 message: "Invalid Session"
             })
         }
@@ -69,7 +69,7 @@ export const getOne = query({
 
         if(conversation.contactSessionId !== session._id){
             throw new ConvexError({
-                code: "UNAUTHRIZED",
+                code: "UNAUTHORIZED",
                 message: "Incorrect Session"
             })
         }
