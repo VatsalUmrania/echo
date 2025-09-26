@@ -82,7 +82,7 @@ export const WidgetChatScreen = () => {
     const { topElementRef, handlerLoadMore, canLoadMore, isLoadingMore} = UseInfiniteScroll({
         status : messages.status,
         loadMore: messages.loadMore,
-        loadSize: 10
+        loadSize: 10,
     })
 
      const form = useForm<z.infer<typeof formSchema>>({
@@ -146,10 +146,9 @@ export const WidgetChatScreen = () => {
                             {/*TODO : Add Avatar Component */}
                             {message.role === "assistant" && (
                                 <DicebearAvatar
-                                    // imageUrl="/logo.svg"
+                                    imageUrl="/logo.svg"
                                     seed="assistant"
                                     size={32}
-                                    badgeImageUrl="/logo.svg"
                                 />
                             )}
                         </AIMessage>
