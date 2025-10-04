@@ -4,7 +4,7 @@ import { AuthLoading, Authenticated, Unauthenticated } from "convex/react";
 import AuthLayout from "../layouts/auth-layout";
 import SignInView from "../views/sign-in-view";
 
-export const AuthGurad = ({ children} : {children : React.ReactNode}) => {
+export const AuthGuard = ({ children} : {children : React.ReactNode}) => {
     return (
         <>
             <AuthLoading>
