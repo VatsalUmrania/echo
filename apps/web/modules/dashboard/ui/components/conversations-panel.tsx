@@ -172,7 +172,7 @@ export const ConversationsPanel = () => {
 export const SkeletonConversations = () => {
     return (
         <div className="flex min-h-0 flex-1 flex-col gap-2 overflow-auto">
-            <div className="relative flex-w-full min-w-0 flex-col p-2">
+            <div className="relative flex w-full min-w-0 flex-col p-2">
                 <div className="w-full space-y-2">
                 {Array.from({ length: 8 }).map((_, index) => (
                     <div

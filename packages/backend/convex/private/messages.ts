@@ -1,10 +1,52 @@
 import { ConvexError, v } from "convex/values";
-import { mutation, query } from "../_generated/server";
+import { action, mutation, query } from "../_generated/server";
 import { components, internal } from "../_generated/api";
 import { supportAgent } from "../system/ai/agents/supportAgent";
 import { paginationOptsValidator } from "convex/server";
-import { threadId } from "worker_threads";
 import { saveMessage } from "@convex-dev/agent";
+import { generateText } from "ai";
+import { google } from "@ai-sdk/google";
+import { vRole } from "@convex-dev/agent/validators";
+
+export const enhancePrompt = action({
+    args : {
+       prompt : v.string(),
+    }, handler: async(ctx, args) => {
+        const identity = await ctx.auth.getUserIdentity();
+    
+        if (identity === null) {
+            throw new ConvexError({
+            code: "UNAUTHORIZED",
+            message: "Identity Not Found",
+            });
+        }
+        
+        const orgId = identity.orgId as string;
+
+        if (!orgId) {
+            throw new ConvexError({
+            code: "UNAUTHORIZED",
+            message: "Organization Not Found",
+            });
+        }
+
+        const response = await generateText({
+            model : google("gemini-2.0-flash"),
+            messages : [
+                {
+                    role : "system",
+                    content : "Enhance the operator's message to be more professional, clear and helpful while maintaining their intent and key information."
+                },
+                {
+                    role : "user",
+                    content : args.prompt,
+                },
+            ]
+        });
+
+        return response.text;
+    },
+})
 
 export const create = mutation({
     args:{
@@ -49,7 +91,7 @@ export const create = mutation({
         if(conversation.status === "resolved"){
             throw new ConvexError({
                 code : "BAD_REQUEST",
-                message : "COnversation Resolved",
+                message : "Conversation Resolved",
             })
         };
 
