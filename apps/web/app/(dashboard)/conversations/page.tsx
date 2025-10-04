@@ -1,6 +1,8 @@
+import { ConversationsView } from "@/modules/dashboard/ui/views/conversations-view";
+
 const ConversationsPage = () => {
   return(
-    <div>Conversations Page</div>
+    <ConversationsView/>
   );
 }
 

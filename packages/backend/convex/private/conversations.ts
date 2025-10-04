@@ -8,43 +8,60 @@ import { Doc } from "../_generated/dataModel";
 
 
 export const getOne = query({
-    args: {
-        conversationId: v.id("conversations"),
-        contactSessionId: v.id("contactSessions")
-    },
-    handler: async (ctx, args) => {
-        const session = await ctx.db.get(args.contactSessionId);
+    args:{
+        conversationId : v.id("conversations"),
 
-        if (!session || session.expiresAt < Date.now()) {
+    },
+    handler: async(ctx,args) => {
+        const identity = await ctx.auth.getUserIdentity();
+    
+        if (identity === null) {
             throw new ConvexError({
-                code: "UNAUTHORIZED",
-                message: "Invalid Session"
-            })
+            code: "UNAUTHORIZED",
+            message: "Identity Not Found",
+            });
+        }
+        
+        const orgId = identity.orgId as string;
+
+        if (!orgId) {
+            throw new ConvexError({
+            code: "UNAUTHORIZED",
+            message: "Organization Not Found",
+            });
         }
 
-        const conversation = await ctx.db.get(args.conversationId)
-        
-        if (!conversation) {
+        const conversation = await ctx.db.get(args.conversationId);
+
+        if(!conversation){
             throw new ConvexError({
                 code: "NOT_FOUND",
-                message: "Conversation Not Found"
+                message : "Conversation Not Found"
             })
         }
 
-        if(conversation.contactSessionId !== session._id){
+        if(conversation.organizationId !== orgId){
             throw new ConvexError({
-                code: "UNAUTHORIZED",
-                message: "Incorrect Session"
+                code : "UNAUTHORIZED",
+                message : "Invalid Organization Id"
             })
         }
 
-        return {
-            _id: conversation._id,
-            status: conversation.status,
-            threadId: conversation.threadId
+       const contactSession = await ctx.db.get(conversation.contactSessionId);
+
+       if(!contactSession){
+            throw new ConvexError({
+                code: "NOT_FOUND",
+                message : "Contact Session Not Found"
+            })
+        }
+
+        return{
+            ...conversation,
+            contactSession,
         };
     }
-})
+});
 
 export const getMany = query({
     args: {
