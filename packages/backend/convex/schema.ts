@@ -28,6 +28,7 @@ export default defineSchema({
   }).index("by_organizationId", ["organizationId"])
   .index("byExpiresAt", ["expiresAt"]),
 
+
   conversations : defineTable({
     threadId : v.string(),
     organizationId : v.string(),
@@ -40,7 +41,8 @@ export default defineSchema({
   })
   .index("by_organization_id",["organizationId"])
   .index("by_contact_session_id",["contactSessionId"])
-  .index("by_thrad_id",["threadId"])
+  .index("by_thread_id",["threadId"])
   .index("by_status_and_organization_id",["status", "organizationId"]),
+  
   
 }); 

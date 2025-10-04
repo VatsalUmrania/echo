@@ -23,7 +23,7 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
-    SidebarProvider,
+    SidebarProvider, // Remove this import since we're not using it here
     SidebarRail
 } from "@workspace/ui/components/sidebar";
 import { cn } from "@workspace/ui/lib/utils";
@@ -132,7 +132,7 @@ export const DashboardSidebar = () => {
 
                 {/* Configuration items*/}
                 <SidebarGroup>
-                    <SidebarGroupLabel>Configuration Items</SidebarGroupLabel>
+                    <SidebarGroupLabel>Configuration</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                         {configurationItems.map((item) => (
@@ -159,7 +159,7 @@ export const DashboardSidebar = () => {
 
                 {/* Account items*/}
                 <SidebarGroup>
-                    <SidebarGroupLabel>Accounts</SidebarGroupLabel>
+                    <SidebarGroupLabel>Account</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                         {accountItems.map((item) => (

@@ -7,7 +7,7 @@ export const getByThreadId = internalQuery({
     },
     handler: async (ctx, args) =>{
         const conversation = await ctx.db.query("conversations")
-            .withIndex("by_thrad_id", (q) => q.eq("threadId",args.threadId))
+            .withIndex("by_thread_id", (q) => q.eq("threadId",args.threadId))
             .unique();
 
         return conversation;

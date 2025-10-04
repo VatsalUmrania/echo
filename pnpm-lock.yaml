@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@types/minimatch':
+        specifier: ^6.0.0
+        version: 6.0.0
       '@workspace/eslint-config':
         specifier: workspace:*
         version: link:packages/eslint-config
@@ -125,6 +128,9 @@ importers:
       convex:
         specifier: ^1.27.3
         version: 1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)
+      countries-and-timezones:
+        specifier: ^3.8.0
+        version: 3.8.0
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
@@ -134,6 +140,9 @@ importers:
       input-otp:
         specifier: ^1.4.2
         version: 1.4.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      jotai:
+        specifier: 2.14.0
+        version: 2.14.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1)
       lucide-react:
         specifier: ^0.475.0
         version: 0.475.0(react@19.1.1)
@@ -171,6 +180,9 @@ importers:
         specifier: ^3.25.76
         version: 3.25.76
     devDependencies:
+      '@types/minimatch':
+        specifier: ^6.0.0
+        version: 6.0.0
       '@types/node':
         specifier: ^20.19.9
         version: 20.19.17
@@ -240,10 +252,16 @@ importers:
       react-hook-form:
         specifier: ^7.63.0
         version: 7.63.0(react@19.1.1)
+      react-resizable-panels:
+        specifier: ^3.0.6
+        version: 3.0.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       zod:
         specifier: 3.25.76
         version: 3.25.76
     devDependencies:
+      '@types/minimatch':
+        specifier: ^6.0.0
+        version: 6.0.0
       '@types/node':
         specifier: ^20.19.9
         version: 20.19.17
@@ -281,8 +299,8 @@ importers:
         specifier: ^2.14.0
         version: 2.14.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@convex-dev/agent':
-        specifier: ^0.1.16
-        version: 0.1.18(ai@4.3.19(react@19.1.1)(zod@3.25.76))(convex-helpers@0.1.104(@standard-schema/spec@1.0.0)(convex@1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1))(react@19.1.1)(typescript@5.9.2)(zod@3.25.76))(convex@1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1))(react@19.1.1)
+        specifier: ^0.1.18
+        version: 0.1.18(ai@4.3.19(react@19.1.1)(zod@3.25.76))(convex-helpers@0.1.104(@standard-schema/spec@1.0.0)(convex@1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1))(react@19.1.1)(typescript@5.9.3)(zod@3.25.76))(convex@1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1))(react@19.1.1)
       ai:
         specifier: 4.3.19
         version: 4.3.19(react@19.1.1)(zod@3.25.76)
@@ -291,8 +309,11 @@ importers:
         version: 1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)
       convex-helpers:
         specifier: ^0.1.104
-        version: 0.1.104(@standard-schema/spec@1.0.0)(convex@1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1))(react@19.1.1)(typescript@5.9.2)(zod@3.25.76)
+        version: 0.1.104(@standard-schema/spec@1.0.0)(convex@1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1))(react@19.1.1)(typescript@5.9.3)(zod@3.25.76)
     devDependencies:
+      '@types/minimatch':
+        specifier: ^6.0.0
+        version: 6.0.0
       '@types/node':
         specifier: ^20.19.9
         version: 20.19.17
@@ -301,7 +322,7 @@ importers:
         version: link:../typescript-config
       typescript:
         specifier: latest
-        version: 5.9.2
+        version: 5.9.3
 
   packages/eslint-config:
     devDependencies:
@@ -352,7 +373,7 @@ importers:
         version: link:../typescript-config
       typescript:
         specifier: latest
-        version: 5.9.2
+        version: 5.9.3
 
   packages/typescript-config: {}
 
@@ -418,6 +439,9 @@ importers:
       react-markdown:
         specifier: ^10.1.0
         version: 10.1.0(@types/react@19.1.13)(react@19.1.1)
+      react-resizable-panels:
+        specifier: ^3.0.6
+        version: 3.0.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       remark-gfm:
         specifier: ^4.0.1
         version: 4.0.1
@@ -440,6 +464,9 @@ importers:
       '@turbo/gen':
         specifier: ^2.5.5
         version: 2.5.6(@types/node@20.19.17)(typescript@5.9.2)
+      '@types/minimatch':
+        specifier: ^6.0.0
+        version: 6.0.0
       '@types/node':
         specifier: ^20.19.9
         version: 20.19.17
@@ -3117,6 +3144,10 @@ packages:
   core-js-pure@3.45.1:
     resolution: {integrity: sha512-OHnWFKgTUshEU8MK+lOs1H8kC8GkTi9Z1tvNkxrCcw9wl3MJIO7q2ld77wjWn4/xuGrVu2X+nME1iIIPBSdyEQ==}
 
+  countries-and-timezones@3.8.0:
+    resolution: {integrity: sha512-+Ze9h5f4dQpUwbzTm0DEkiPiZyim9VHV4/mSnT4zNYJnrnfwsKjAZPtnp7J5VzejCDgySs+2SSc6MDdCnD43GA==}
+    engines: {node: '>=8.x', npm: '>=5.x'}
+
   create-require@1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
 
@@ -5242,6 +5273,11 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  typescript@5.9.3:
+    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   uglify-js@3.19.3:
     resolution: {integrity: sha512-v3Xu+yuwBXisp6QYTcH4UbH+xYJXqnq2m/LtQVWKWzYc1iehYnLixoQDN9FH6/j9/oybfd6W9Ghwkl8+UMKTKQ==}
     engines: {node: '>=0.8.0'}
@@ -5656,11 +5692,11 @@ snapshots:
     optionalDependencies:
       react: 19.1.1
 
-  '@convex-dev/agent@0.1.18(ai@4.3.19(react@19.1.1)(zod@3.25.76))(convex-helpers@0.1.104(@standard-schema/spec@1.0.0)(convex@1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1))(react@19.1.1)(typescript@5.9.2)(zod@3.25.76))(convex@1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1))(react@19.1.1)':
+  '@convex-dev/agent@0.1.18(ai@4.3.19(react@19.1.1)(zod@3.25.76))(convex-helpers@0.1.104(@standard-schema/spec@1.0.0)(convex@1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1))(react@19.1.1)(typescript@5.9.3)(zod@3.25.76))(convex@1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1))(react@19.1.1)':
     dependencies:
       ai: 4.3.19(react@19.1.1)(zod@3.25.76)
       convex: 1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)
-      convex-helpers: 0.1.104(@standard-schema/spec@1.0.0)(convex@1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1))(react@19.1.1)(typescript@5.9.2)(zod@3.25.76)
+      convex-helpers: 0.1.104(@standard-schema/spec@1.0.0)(convex@1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1))(react@19.1.1)(typescript@5.9.3)(zod@3.25.76)
     optionalDependencies:
       react: 19.1.1
 
@@ -8194,6 +8230,15 @@ snapshots:
       typescript: 5.9.2
       zod: 3.25.76
 
+  convex-helpers@0.1.104(@standard-schema/spec@1.0.0)(convex@1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1))(react@19.1.1)(typescript@5.9.3)(zod@3.25.76):
+    dependencies:
+      convex: 1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)
+    optionalDependencies:
+      '@standard-schema/spec': 1.0.0
+      react: 19.1.1
+      typescript: 5.9.3
+      zod: 3.25.76
+
   convex@1.27.3(@clerk/clerk-react@5.47.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1):
     dependencies:
       esbuild: 0.25.4
@@ -8206,6 +8251,8 @@ snapshots:
   cookie@1.0.2: {}
 
   core-js-pure@3.45.1: {}
+
+  countries-and-timezones@3.8.0: {}
 
   create-require@1.1.1: {}
 
@@ -10827,6 +10874,8 @@ snapshots:
   typescript@5.7.3: {}
 
   typescript@5.9.2: {}
+
+  typescript@5.9.3: {}
 
   uglify-js@3.19.3:
     optional: true
