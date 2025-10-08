@@ -1,6 +1,6 @@
 "use client"
-import { Authenticated, Unauthenticated, useQuery ,useMutation} from "convex/react";
-import { OrganizationSwitcher, SignInButton, UserButton } from "@clerk/nextjs";
+import { Authenticated, Unauthenticated } from "convex/react";
+import { SignInButton, UserButton } from "@clerk/nextjs";
 import DashboardPage from "./(dashboard)/page";
 
 export default function Page() {
