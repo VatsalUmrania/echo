@@ -1,6 +1,6 @@
 "use client"
 import { Authenticated, Unauthenticated } from "convex/react";
-import { SignInButton, UserButton } from "@clerk/nextjs";
+import { SignInButton } from "@clerk/nextjs";
 import DashboardPage from "./(dashboard)/page";
 
 export default function Page() {
