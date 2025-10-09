@@ -20,7 +20,7 @@ export default async function DashboardLayout({
           <SidebarProvider defaultOpen={defaultOpen}>
             <div className="flex h-screen w-screen overflow-hidden">
               <DashboardSidebar />
-              <main className="flex min-w-0 flex-1 overflow-hidden">
+              <main className="flex flex-1 flex-col min-w-0 overflow-hidden">
                 {children}
               </main>
             </div>
