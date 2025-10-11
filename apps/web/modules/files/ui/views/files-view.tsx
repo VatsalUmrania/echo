@@ -72,8 +72,8 @@ export const FilesView = () => {
                 file={selectedFile}   
                 onDeleted={handleFileDelete}        
             />
-            <div className="flex min-w-screen flex-col bg-muted p-8">
-                <div className="w-full max-w-screen-md">
+            <div className="flex min-h-screen w-full flex-col bg-muted p-8">
+                <div className="mx-auto w-full max-w-screen-md">
                     <div className="space-y-2">
                         <h1 className="text-2xl md:text-4xl">
                             <span className="flex items-center gap-2">

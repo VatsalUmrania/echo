@@ -25,8 +25,9 @@ export default defineSchema({
       referrer : v.optional(v.string()),
       currentUrl : v.optional(v.string()),
     }))
-  }).index("by_organizationId", ["organizationId"])
-  .index("byExpiresAt", ["expiresAt"]),
+  })
+    .index("by_organizationId", ["organizationId"])
+    .index("byExpiresAt", ["expiresAt"]),
 
 
   conversations : defineTable({
@@ -39,10 +40,17 @@ export default defineSchema({
       v.literal("resolved")
     ),
   })
-  .index("by_organization_id",["organizationId"])
-  .index("by_contact_session_id",["contactSessionId"])
-  .index("by_thread_id",["threadId"])
-  .index("by_status_and_organization_id",["status", "organizationId"]),
+    .index("by_organization_id",["organizationId"])
+    .index("by_contact_session_id",["contactSessionId"])
+    .index("by_thread_id",["threadId"])
+    .index("by_status_and_organization_id",["status", "organizationId"]),
   
+  plugins: defineTable({
+    organizationId : v.string(),
+    service : v.union(v.literal("vapi")),
+    secretName : v.string(),
+  })
+    .index("by_organization_id", ["organizationId"])
+    .index("by_orgnization_id_and_service",["organizationId", "service"])
   
 }); 
