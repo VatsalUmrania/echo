@@ -35,7 +35,7 @@ export async function upsertSecret(
         await client.send(
             new CreateSecretCommand({
                 Name :secretName,
-                SecretString : JSON.stringify(secretName)
+                SecretString : JSON.stringify(secretValue)
             }),
         )
     } catch (error) {
@@ -43,7 +43,7 @@ export async function upsertSecret(
             await client.send(
                 new PutSecretValueCommand({
                     SecretId: secretName,
-                    SecretString : JSON.stringify(secretName)
+                    SecretString : JSON.stringify(secretValue)
                 })
             )
         } else {
