@@ -14,6 +14,14 @@ const fontMono = Geist_Mono({
   variable: "--font-mono",
 })
 
+export const metadata = {
+  title: "Echo Web",
+  description: "Your app description",
+  icons: {
+    icon: "/logo.svg", 
+  },
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,6 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* You can also add custom favicon here */}
+        <link rel="icon" href="/logo.svg" />
+      </head>
       <body
         className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
       >

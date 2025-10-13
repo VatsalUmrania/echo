@@ -17,17 +17,17 @@ export const VapiAssistantsTab = () => {
     const { data: assistants, isLoading} = useVapiAssistants();
 
     return(
-        <div className="border-t bg-background">
-            <Table>
+        <div className="border-t bg-background overflow-x-auto">
+            <Table className="min-w-full">
                 <TableHeader>
                     <TableRow>
-                        <TableHead className="px-6 py-4">
+                        <TableHead className="px-6 py-4 whitespace-nowrap">
                             Assistant
                         </TableHead>
-                        <TableHead className="px-6 py-4">
+                        <TableHead className="px-6 py-4 whitespace-nowrap">
                             Model
                         </TableHead>
-                        <TableHead className="px-6 py-4">
+                        <TableHead className="px-6 py-4 whitespace-nowrap min-w-[300px]">
                             First Message
                         </TableHead>
                     </TableRow>
@@ -61,7 +61,7 @@ export const VapiAssistantsTab = () => {
 
                         return assistants.map((assistant) => (
                             <TableRow className="hover:bg-muted/50" key={assistant.id}>
-                                <TableCell className="px-6 py-4">
+                                <TableCell className="px-6 py-4 whitespace-nowrap">
                                     <div className="flex items-center gap-3">
                                         <BotIcon className="size-4 text-muted-foreground"/>
                                         <span>
@@ -69,13 +69,13 @@ export const VapiAssistantsTab = () => {
                                         </span>
                                     </div>
                                 </TableCell>
-                                <TableCell className="px-6 py-4">
+                                <TableCell className="px-6 py-4 whitespace-nowrap">
                                     <span className="text-sm">
                                         {assistant.model?.model || "Not Configured"}
                                     </span>
                                 </TableCell>
-                                 <TableCell className="max-w-sm px-6 py-4">
-                                    <span className="truncate text-muted-foreground text-sm">
+                                 <TableCell className="px-6 py-4">
+                                    <span className="text-muted-foreground text-sm whitespace-normal break-words">
                                         {assistant.firstMessage || "No Greeting Configured"}
                                     </span>
                                 </TableCell>
