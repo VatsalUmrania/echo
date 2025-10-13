@@ -83,7 +83,7 @@ export const VapiConnectedView = ({ onDisconnect } : VapiConnectedViewProps) => 
             <div className="overflow-hidden rounded-lg border bg-background">
                 <Tabs
                     className="gap-0"
-                    defaultValues="phone-numbers"
+                    defaultValue="phone-numbers"
                     onValueChange={setActiveTab}
                     value={activeTab}
                 >
