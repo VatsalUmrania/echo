@@ -2,10 +2,10 @@
 
 import { useAtomValue, useSetAtom } from "jotai";
 import { LoaderIcon } from "lucide-react";
-import { contactSessionIdAtomFamily, errorMessageAtom, loadingMessageAtom, organizationIdAtom, screenAtom } from "@/modules/widget/atoms/widget-atoms";
+import { contactSessionIdAtomFamily, errorMessageAtom, loadingMessageAtom, organizationIdAtom, screenAtom, widgetSettingsAtom } from "@/modules/widget/atoms/widget-atoms";
 import { WidgetHeader } from "@/modules/widget/ui/components/widget-header";
 import { useEffect, useState } from "react";
-import { useAction, useMutation } from "convex/react";
+import { useAction, useMutation, useQuery } from "convex/react";
 import { api } from "@workspace/backend/_generated/api";
 import { Id } from "@workspace/backend/_generated/dataModel";
 
@@ -17,6 +17,7 @@ export const WidgetLoadingScreen = ({ organizationId }:{organizationId : string 
     const [sesseionValid , setSessionValid] = useState(false);
     const setLoadingMessage = useSetAtom(loadingMessageAtom)
     const loadingMessage = useAtomValue(loadingMessageAtom);
+    const setWidgetSettings = useSetAtom(widgetSettingsAtom)
     const setErrorMessage = useSetAtom(errorMessageAtom);
     const setScreen = useSetAtom(screenAtom);
     const setOrganizationId = useSetAtom(organizationIdAtom);
@@ -73,7 +74,7 @@ export const WidgetLoadingScreen = ({ organizationId }:{organizationId : string 
 
         if (!contactSessionId){
             setSessionValid(false);
-            setStep("done");
+            setStep("settings");
             return;
         }
 
@@ -84,7 +85,7 @@ export const WidgetLoadingScreen = ({ organizationId }:{organizationId : string 
         })
         .then((result) => {
             setSessionValid(result.valid);
-            setStep("done");
+            setStep("settings");
         })
         .catch(() =>{
             setSessionValid(false);
@@ -96,6 +97,32 @@ export const WidgetLoadingScreen = ({ organizationId }:{organizationId : string 
         validateContactSession,
         setLoadingMessage
     ])
+
+    // Step 3 : Load Widget Settings
+    const widgetSettings = useQuery(api.public.widgetSettings.getByOrganizationId, 
+        organizationId ? {
+            organizationId
+        } : "skip",
+    )
+
+    useEffect(() => {
+        if(step !== "settings"){
+            return;
+        }
+
+        setLoadingMessage("Loading Widget Settings...")
+        
+        if(widgetSettings !== undefined){
+            setWidgetSettings(widgetSettings);
+            setStep("done")
+        }
+    },[
+        step,
+        widgetSettings,
+        setStep,
+        setWidgetSettings,
+        setLoadingMessage,
+    ]);
 
     useEffect(()=>{
         if(step !== "done"){
