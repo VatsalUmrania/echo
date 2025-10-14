@@ -12,7 +12,13 @@ const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 })
-
+export const metadata = {
+  title: "Echo Widget",
+  description: "Your app description",
+  icons: {
+    icon: "/logo.svg", 
+  },
+}
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,6 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/logo.svg"/>
+      </head>
       <body
         className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
       >
