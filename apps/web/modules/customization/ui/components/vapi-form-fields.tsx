@@ -100,7 +100,7 @@ export const VapiFormFields = ({
                                 <SelectContent>
                                     <SelectItem value="none">None</SelectItem>
                                     {phoneNumbers.map((phonenumber) => (
-                                        <SelectItem key={phonenumber.id} value={phonenumber.id ?? phonenumber.number}>
+                                        <SelectItem key={phonenumber.number} value={phonenumber.number ?? ""}>
                                             {phonenumber.number || "Unknown"} - {" "}
                                             {phonenumber?.name || "Unnamed"}
                                         </SelectItem>
