@@ -19,6 +19,12 @@ export const metadata = {
     icon: "/logo.svg", 
   },
 }
+/**
+ * Application root layout that configures fonts, metadata, and wraps page content with app providers.
+ *
+ * @param children - The React node rendered as the page content inside Providers and a full-viewport container.
+ * @returns The top-level HTML structure (<html>, <head>, <body>) with configured font variables, favicon, and Providers-wrapped children.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
