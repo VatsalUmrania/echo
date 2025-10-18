@@ -30,6 +30,19 @@ export const enhancePrompt = action({
             message: "Organization Not Found",
             });
         }
+        
+        const subscription = await ctx.runQuery(
+            internal.system.subsciptions.getByOrganizationId,{
+                organizationId: orgId
+            }
+        );
+
+        if(subscription?.status !== "active"){
+            throw new ConvexError({
+                code: "BAD_REQUEST",
+                message: "Missing Subscription"
+            })
+        };
 
         const response = await generateText({
             model : google("gemini-2.0-flash"),

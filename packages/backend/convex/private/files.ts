@@ -12,6 +12,7 @@ import { extractTextContent } from "../lib/extractTextContent";
 import rag from "../system/ai/rag";
 import { Id } from "../_generated/dataModel";
 import { paginationOptsValidator } from "convex/server";
+import { internal } from "../_generated/api";
 
 
 function guessMimeType(filename : string, bytes : ArrayBuffer): string {
@@ -108,6 +109,19 @@ export const addFile = action({
             message: "Organization Not Found",
             });
         }
+
+        const subscription = await ctx.runQuery(
+            internal.system.subsciptions.getByOrganizationId,{
+                organizationId: orgId
+            }
+        );
+
+        if(subscription?.status !== "active"){
+            throw new ConvexError({
+                code: "BAD_REQUEST",
+                message: "Missing Subscription"
+            })
+        };
 
         const { bytes, filename , category } = args;
 
