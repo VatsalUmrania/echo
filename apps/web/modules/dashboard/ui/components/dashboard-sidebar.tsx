@@ -31,12 +31,12 @@ import { cn } from "@workspace/ui/lib/utils";
 const customerSupportItems = [
     {
         title : "Conversations",
-        url : "/conversations",
+        url : "/dashboard/conversations",
         icon : InboxIcon,
     },
     {
         title : "Knowledge Base",
-        url : "/files",
+        url : "/dashboard/files",
         icon : LibraryBigIcon,
     }
 ]
@@ -44,17 +44,17 @@ const customerSupportItems = [
 const configurationItems = [
     {
         title : "widget Customization",
-        url: "/customization",
+        url: "/dashboard/customization",
         icon: PaletteIcon
     },
     {
         title : "Integrations",
-        url: "/integrations",
+        url: "/dashboard/integrations",
         icon : LayoutDashboardIcon
     },
     {
         title : "Voice Asssistant",
-        url: "/plugins/vapi",
+        url: "/dashboard/plugins/vapi",
         icon : Mic
     }
 ]
@@ -62,7 +62,7 @@ const configurationItems = [
 const accountItems = [
     {
         title : "Plans & Billing",
-        url : "/billing",
+        url : "/dashboard//billing",
         icon : CreditCardIcon
     }
 ]
@@ -70,7 +70,7 @@ const accountItems = [
 export const DashboardSidebar = () => {
     const pathname = usePathname();
     const isActive = (url : string) => {
-        if(url === "/") {
+        if(url === "/dashboard/") {
             return pathname === url;
         }
 

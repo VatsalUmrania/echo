@@ -109,7 +109,7 @@ export const PremiumFeatureOverLay = ({
                         </div>
                         <Button
                             className="w-full"
-                            onClick={() => router.push("/billing")}
+                            onClick={() => router.push("/dashboard//billing")}
                             size="lg"
                         >
                             View Plans
