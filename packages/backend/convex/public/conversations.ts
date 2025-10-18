@@ -2,7 +2,7 @@ import { mutation, query } from "../_generated/server";
 import { ConvexError, v } from "convex/values";
 import { supportAgent } from "../system/ai/agents/supportAgent";
 import { MessageDoc, saveMessage } from "@convex-dev/agent";
-import { components } from "../_generated/api";
+import { components, internal } from "../_generated/api";
 import { paginationOptsValidator } from "convex/server";
 
 export const create = mutation({
@@ -39,6 +39,11 @@ export const create = mutation({
             }
         })
 
+        // This refreshers the user's session if they are within the threshold
+        await ctx.runMutation(internal.system.contactSessions.refresh,{
+            contactSeesionId: args.contactSessionId,
+        });
+        
         const conversationId = await ctx.db.insert("conversations", {
             contactSessionId: session._id,
             status: "unresolved",

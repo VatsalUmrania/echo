@@ -35,6 +35,7 @@ import { UseInfiniteScroll } from "@workspace/ui/hooks/use-infinite-scroll";
 import { InfiniteScrollTrigger } from "@workspace/ui/components/infinit-scroll-trigger";
 import { cn } from "@workspace/ui/lib/utils";
 import { Skeleton } from "@workspace/ui/components/skeleton";
+import { toast } from "sonner";
 
 const formSchema = z.object({
     message : z.string().min(1, "Message is Required "),
@@ -88,6 +89,7 @@ export const ConversationIdView = ({
             form.setValue("message", response);
         } catch (error) {
             console.error(error);
+            toast.error("Something Went Wrong")
         } finally{
             setIsEnhancing(false);
         }
